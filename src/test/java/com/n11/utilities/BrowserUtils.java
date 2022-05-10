@@ -1,7 +1,8 @@
 package com.n11.utilities;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,6 +21,8 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+
+
 
     public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.get(), timeout);

@@ -2,6 +2,7 @@ package com.n11.pages;
 
 import com.n11.utilities.BrowserUtils;
 import com.n11.utilities.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -33,16 +34,12 @@ public class LoginPage  {
 
 
     public void login(String userNameStr, String passwordStr) {
-        Actions action = new Actions(Driver.get());
+        Actions actions= new Actions(Driver.get());
         BrowserUtils.waitForVisibility(popUpButtonEvet,10).click();
         userName.sendKeys(userNameStr);
         BrowserUtils.waitFor(4);
         password.sendKeys(passwordStr);
-        BrowserUtils.waitFor(4);
-        action.doubleClick(loginButton).perform();
-        BrowserUtils.waitFor(4);
-
-
+        BrowserUtils.waitFor(40);
 
 
     }

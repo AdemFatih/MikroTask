@@ -11,6 +11,7 @@ import com.n11.pages.LoginPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.remote.ScreenshotException;
 
 public class FavoriteProductStepDefs {
 
@@ -20,10 +21,12 @@ public class FavoriteProductStepDefs {
     int listOfFavoriteProduct;
 
 
+
     @Given("the user go to n11 url")
     public void theUserGoToNUrl() {
         Driver.get().get(ConfigurationReader.get("url"));
     }
+
 
     @Then("verify the user is on the homepage")
     public void verifyTheUserIsOnTheHomepage() {
@@ -47,6 +50,7 @@ public class FavoriteProductStepDefs {
     @When("the user search {string} keyword")
     public void theUserSearchKeyword(String productName) {
         homePage.search.sendKeys(productName);
+
     }
 
     @Then("verify {string} keyword is searched")
@@ -79,13 +83,16 @@ public class FavoriteProductStepDefs {
     public void theUserGoTo(String optionName) {
         BrowserUtils.hover(homePage.hesabımButton);
         homePage.dropdownHesabım(optionName);
+
         favoritePage.favorilerimButton2.click();
+
     }
 
 
     @Then("verify the user is on the favoritelist")
     public void verifyTheUserIsOnTheFavoritelist() {
         Assert.assertEquals("Favorilerim", favoritePage.favorilerimHeader.getText());
+
 
     }
 
@@ -100,17 +107,20 @@ public class FavoriteProductStepDefs {
     public void verifyTheProductIsDelete() {
         Assert.assertEquals(listOfFavoriteProduct, favoritePage.favoriteProduct.size() + 1);
 
+
     }
 
     @When("the user click to {string} button")
     public void theUserClickToButton(String optionName) {
         BrowserUtils.hover(homePage.hesabımButton);
         homePage.dropdownHesabım(optionName);
+
     }
 
     @Then("verify the user log out successfully")
     public void verifyTheUserLogOutSuccessfully() {
         Assert.assertFalse(Driver.get().getPageSource().contains("menuLink user"));
+
 
 
     }

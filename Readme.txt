@@ -1,14 +1,14 @@
 #Test-automation-Mikro
 
-Mikro project for test automation, covering Ul acceptance testing:
+Mikro project for test automation, Ul and Api testing:
 
-The Ul framework created using Cucumber BDD in Gherlin language.
+The Ul framework and Api test created using Cucumber BDD in Gherkin language
 
-For assertion in UI, Junit is used.
+For assertion in UI and Api, Junit is used.
 
 ##Concepts Included
 
-Cucumber BDD testing for UI
+Cucumber BDD testing for UI and Api
 
 Shared state across cucumber step definitions
 
@@ -22,7 +22,7 @@ Commonly used test utility classes
 
 ##Tools;
 
-Maven - Cucumber-JVM - JUnit - Selenium Webdriver
+Maven - Cucumber-JVM - JUnit - Selenium Webdriver - Restassured
 
 ##Requirements
 
@@ -30,7 +30,7 @@ In order to utilise this project you need to have the following installed locall
 
 Maven 2.22.2
 
-Chrome and Chromedriver (Ul tests use Chrome by default, can be changed in config)
+Mozilla Firefox (Ul tests use Firefoxby default, can be changed in config)
 
 Java 11 - version 11
 
@@ -55,6 +55,8 @@ maven-surefire-plugin- version 2.22.2
 maven-cucumber-reporting - version 5.0.0
 
 ##Usage
+
+For Api test you should @Api tag and for UI test you should @UI tag in CukesRunner
 
 The project is broken into separate modules for UI.
 

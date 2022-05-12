@@ -21,17 +21,27 @@ public abstract class BasePage extends BrowserUtils {
     @FindBy(id = "searchData")
     public WebElement search;
 
+    @FindBy(xpath = "//div[@class='accNav']//a[contains(text(),'Favorilerim / Listelerim')]")
+    public WebElement favorilerimListelerimButton;
+
+    @FindBy(xpath = "//span[@class='icon iconSearch']")
+    public WebElement iconSearch;
+
     @FindBy(xpath = "//div//h1")
     public WebElement searchedKeyword;
 
     @FindBy(xpath = "//a[@class='active ']")
     public WebElement activePageNumber;
 
-
-    public void dropdownHesabım(String optionName) {
-        Driver.get().findElement(By.cssSelector("a[title='" + optionName + "']")).click();
+    public void selectCikisFromHesabimMenu() {
+        BrowserUtils.hover(Driver.get().findElement(By.xpath("//a[@title='Hesabım'][contains(text(),'Hesabım')]")));
+        Driver.get().findElement(By.cssSelector("a[title='Çıkış Yap']")).click();
     }
 
+    public void selectFavoriListelerimFromHesabimMenu() {
+        hesabımButton.click();
+        Driver.get().findElement(By.xpath("//div[@class='accNav']//a[contains(text(),'Favorilerim / Listelerim')]")).click();
+    }
 
     public WebElement addFavoriteList(int productNumber) {
         return Driver.get().findElement(By.xpath("//li[@class='column '][" + productNumber + "]//span[@title='Favorilere ekle']"));
@@ -41,12 +51,9 @@ public abstract class BasePage extends BrowserUtils {
         Driver.get().findElement(By.xpath("//a[.='" + pageNumber + "']")).click();
     }
 
-
     public void navigateTo(String tab) {
-
         String tabLocator = "[data-id='" + tab + "']";
         BrowserUtils.waitForClickablility((WebElement) By.cssSelector(tabLocator), 10);
         Driver.get().findElement(By.cssSelector(tabLocator)).click();
-
     }
 }

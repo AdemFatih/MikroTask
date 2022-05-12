@@ -1,4 +1,4 @@
-@wip
+@UI
 Feature: favoritelist functionality
 
   Scenario: the user should add and delete favorite product to favorite list
@@ -15,12 +15,11 @@ Feature: favoritelist functionality
     Then verify the user is on the 2. page
 
     When the user add 3. product to favoritelist
-    And the user go to "Favorilerim / Listelerim"
+    And the user go to Favorilerim-Listelerim
     Then verify the user is on the favoritelist
     When the user delete the product from the favoritelist
     Then verify the product is delete
-
-    When the user click to "Çıkış Yap" button
+    When the user click to Çıkış Yap button
     Then verify the user log out successfully
 
 
